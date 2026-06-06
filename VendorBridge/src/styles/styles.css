@@ -1,20 +1,42 @@
 :root {
-  --bg: #0f1110;
-  --panel: #151816;
-  --panel-soft: #1b1f1c;
-  --line: #3d4741;
-  --line-strong: #6a746d;
-  --text: #f4f7f2;
-  --muted: #a9b3aa;
-  --subtle: #727d75;
-  --green: #159447;
-  --green-soft: #0f5f31;
-  --green-dim: rgba(21, 148, 71, 0.18);
-  --blue: #3f8cff;
-  --amber: #e7a73a;
-  --red: #e45d5d;
-  --radius: 8px;
-  --shadow: 0 18px 55px rgba(0, 0, 0, 0.25);
+  /* Base background system (soft pastel, not white) */
+  --bg: #f0efeb;              /* soft warm off-white */
+  --panel: #fff1e6;          /* peach cream card */
+  --panel-soft: #fde2e4;     /* blush tint sections */
+
+  /* Borders */
+  --line: #dbe7e4;           
+  --line-strong: #c5dedd;    
+
+  /* Text (soft, not black harsh) */
+  --text: #171818;           
+  --muted: #5b6b6b;          
+  --subtle: #7a8a8a;         
+
+  /* Accent palette (your requested pastels) */
+  --frosted-mint: #d3f8e2;
+  --mauve: #e4c1f9;
+  --pink-mist: #f694c1;
+  --vanilla-custard: #ede7b1;
+  --icy-blue: #a9def9;
+
+  /* Mapping accents into usable UI roles */
+  --primary: #d69aef;         /* soft blue */
+  --secondary: #bcd4e6;       /* lighter blue */
+
+  --green: #7ccf9a;           /* soft success mint */
+  --amber: #f2c14e;           /* warm honey */
+  --red: #ef6b73;            /* soft coral red */
+
+  /* Soft UI fills */
+  --green-soft: rgba(211, 248, 226, 0.6);   /* frosted mint */
+  --blue-soft: rgba(169, 222, 249, 0.5);    /* icy blue */
+  --pink-soft: rgba(246, 148, 193, 0.35);   /* pink mist */
+  --mauve-soft: rgba(228, 193, 249, 0.35);  /* mauve */
+
+  /* UI */
+  --radius: 10px;
+  --shadow: 0 14px 40px rgba(60, 70, 90, 0.12);
 }
 
 * {
@@ -47,9 +69,9 @@ button {
   place-items: center;
   padding: 32px;
   background:
-    linear-gradient(rgba(15, 17, 16, 0.82), rgba(15, 17, 16, 0.94)),
-    repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, transparent 1px 80px),
-    repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 1px, transparent 1px 80px);
+    linear-gradient(rgba(110, 206, 219, 0.82), rgba(166, 106, 205, 0.94)),
+    repeating-linear-gradient(90deg, rgba(166, 106, 205, 0.94) 0 1px, transparent 1px 80px),
+    repeating-linear-gradient(0deg, rgba(166, 106, 205, 0.94) 0 1px, transparent 1px 80px);
 }
 
 .auth-card {
@@ -70,7 +92,7 @@ button {
   display: grid;
   place-items: center;
   color: var(--muted);
-  background: #101311;
+  background: #ffcfd2;
 }
 
 .auth-card h1 {
@@ -101,7 +123,7 @@ button {
 .textarea {
   width: 100%;
   color: var(--text);
-  background: #101311;
+  background: #ffcfd2;
   border: 1px solid var(--line);
   border-radius: 6px;
   padding: 10px 12px;
@@ -128,7 +150,7 @@ button {
 
 .sidebar {
   border-right: 1px solid var(--line-strong);
-  background: #101311;
+  background: #ffd6ba;
   min-height: 100vh;
   position: sticky;
   top: 0;
@@ -179,11 +201,11 @@ button {
 .nav button:hover {
   color: var(--text);
   border-color: var(--line);
-  background: rgba(255,255,255,.025);
+  background:#7ccf9a;
 }
 
 .nav button.active {
-  color: #fff;
+  color: #5bda89;
   background: var(--green-soft);
   border-color: var(--green);
 }
@@ -280,7 +302,7 @@ h2 {
 .btn {
   min-height: 36px;
   border: 1px solid var(--line-strong);
-  background: #111411;
+  background: #7ccf9a;
   color: var(--text);
   border-radius: 6px;
   padding: 0 13px;
@@ -852,4 +874,96 @@ tbody tr:hover {
   .stepper {
     grid-template-columns: 1fr;
   }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 14px;
+  border-radius: var(--radius);
+}
+
+.table-wrapper {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  color: var(--text);
+}
+
+.table th {
+  color: var(--muted);
+  background: var(--panel-soft);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.topbar {
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--panel-soft);
+  padding: 6px 10px;
+  border-radius: 6px;
+  width: 320px;
+}
+
+.search input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  width: 100%;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--green-dim);
+  display: grid;
+  place-items: center;
+  color: var(--green);
+  font-weight: bold;
 }

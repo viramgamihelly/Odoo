@@ -1,30 +1,19 @@
-import { useState } from "react";
+import { Outlet } from "react-router-dom";
+
 import Sidebar from "../components/Sidebar";
+import Topbar from "../components/Topbar";
 
-import Dashboard from "../pages/Dashboard";
-import Vendors from "../pages/Vendors";
-
-export default function MainLayout() {
-  const [screen, setScreen] = useState("dashboard");
-
-  const renderScreen = () => {
-    switch (screen) {
-      case "vendors":
-        return <Vendors />;
-
-      case "dashboard":
-      default:
-        return <Dashboard />;
-    }
-  };
-
+export default function MainLayout({ user }) {
   return (
     <div className="app-shell">
-      <Sidebar screen={screen} setScreen={setScreen} />
+      <Sidebar />
 
-      <main className="main">
-        {renderScreen()}
-      </main>
+      <div className="main">
+        <Topbar user={user} />
+
+        {/* THIS IS WHERE PAGES LOAD */}
+        <Outlet />
+      </div>
     </div>
   );
 }
